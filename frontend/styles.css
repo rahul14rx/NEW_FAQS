@@ -1,0 +1,655 @@
+/* General Reset */
+body, h1, h2, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FFFFFF;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 80px;
+    background-color: #1e2132;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: fixed; /* Sticks the sidebar */
+    top: 0;
+    left: 0;
+    padding: 9px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 10;
+}
+.breadcrumbs a {
+    text-decoration: none; /* Removes underline */
+}
+
+.sidebar .logo {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0;
+}
+
+.sidebar li {
+    position: relative; /* For ripple positioning */
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    width: 98px;
+    background-color: transparent; 
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    overflow: hidden; /* Prevent ripple from spilling */
+    transition: all 0.3s ease-in-out;
+
+}
+
+
+
+.sidebar li:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Mild light color */
+    width: 100%; /* Extend hover effect to full width */
+    border-radius: 0; /* Make it rectangular */
+    transition: background-color 0.3s ease-in-out;
+}
+/* Ripple Effect for Sidebar */
+.sidebar li {
+    position: relative; /* Ensure the ripple stays inside */
+    overflow: hidden; /* Clip the ripple to the button boundaries */
+    cursor: pointer;
+}
+
+/* Active State: Small highlight bar */
+/* Active State: Small highlight bar */
+.sidebar li.active {
+    background-color: transparent !important; /* Mild background highlight */
+    position: relative; /* Needed for the ::before pseudo-element */
+}
+
+.sidebar li.active::before {
+    content: '';
+    position: absolute;
+    left: 0; /* Aligns to the left edge */
+    top: 0;
+    height: 100%; /* Full height of the parent li */
+    width: 5px; /* Width of the white strip */
+    background-color: #fff; /* White strip color */
+    border-radius: 0; /* No rounded edges */
+    z-index: 1; /* Ensures visibility */
+}
+.sidebar li::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3); /* Ripple color */
+    width: 20px; /* Initial ripple size */
+    height: 20px;
+    border-radius: 50%; /* Perfect circle */
+    transform: scale(0); /* Start with no size */
+    opacity: 0.5; /* Semi-transparent */
+    pointer-events: none; /* Allows clicks to pass through */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Smooth animation */
+}
+
+.sidebar li:active::after {
+    /*transform: translate(-50%, 10%) scale(6); /* Expand ripple */
+    transform: scale(12); /* Expand ripple fully */
+    opacity: 0; /* Fade out completely */
+    left: 50%; /* Center ripple horizontally */
+    top: 50%; /* Center ripple vertically */
+    transform: translate(-50%, -50%) scale(12);
+    
+    /*opacity: 10; /* Fade out */
+}
+.ripple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(12); /* Expand ripple smoothly */
+        opacity: 0; /* Fade out */
+    }
+}
+
+/*! CONTAINER ---------------------------- >> */ 
+
+
+
+body {
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+
+
+
+.logo-item:hover {
+    background-color: transparent !important; /* Removes the hover background */
+    box-shadow: none; /* Removes any hover shadow */
+    
+}
+
+/* Rotate the image in 3D on hover */
+.logo-item {
+    perspective: 500px; /* Adds depth for the 3D effect */
+}
+
+.logo-item img {
+    transition: transform 0.6s ease; /* Smooth animation for rotation */
+    transform-origin: center; /* Set the rotation origin to the center */
+}
+
+.logo-item:hover img {
+    transform: rotateY(180deg); /* Rotate 180 degrees along the Y-axis */
+}
+
+
+/* Main Content */  
+/* Main Content */
+.main-content {
+    margin-left: 80px; /* Space for sidebar */
+    flex: 1;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center child elements */
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Space between left and right sections */ /* Align items to the left */
+    align-items: center;
+    
+    margin-bottom: 20px;
+}
+
+header h2 {
+    margin: 0; /* Remove extra margin */
+    font-size: 17.5px;
+    color: #FC5B67;
+    margin-left : -44.3rem;
+    grid-area: 1 / 1;
+}
+
+.divider {
+    width: calc(400% - 330px); /* 100% minus sidebar width */
+    margin: 0 auto; /* Center the line */
+    border: none;
+    margin: 32px auto 0;
+    margin-left:-4rem;
+    border-top: 1px solid #e6e6e6;
+}
+
+
+
+
+/* Tabs Section */
+.tabs {
+    display: flex;
+    justify-content: center;
+  
+    margin-bottom: 20px;
+    margin-top: 130px; /* Move tabs bar lower */
+}
+
+.tabs button {
+    background-color: #f6f7f8;
+    border: none;
+    border-radius: 27px;
+    padding: 16.7px 38.3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color:  #101828;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-results {
+    display: none;
+    background-color: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 10px;
+    max-width: 800px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.search-results-dropdown {
+    position: absolute; /* Float above other content */
+    top: calc(100% + 5px); /* Just below the search bar */
+    left: 0; /* Match the left edge of the search bar */
+    width: 100%; /* Match the width of the input field */
+    background-color: #FFFFFF; /* Dropdown background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 999; /* Ensure it's above all content */
+    max-height: 250px; /* Limit height for scrolling */
+    overflow-y: auto; /* Add scroll for overflowing content */
+}
+
+
+.search-results-dropdown div {
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.search-results-dropdown div:last-child {
+    border-bottom: none;
+}
+
+.search-results-dropdown div:hover {
+    background-color: #f7f9fb; /* Subtle hover effect */
+    color: #101828; /* Ensure text color on hover */
+}
+
+
+.result-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item p {
+    margin: 5px 0;
+}
+
+.category-label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline */
+    color: #666; /* Text color */
+    font-weight: bold;
+    margin: 0 55px; /
+}
+
+.nav-links a.active {
+    color: #ff5b67;
+}
+
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 70px;
+    
+}
+
+/* Tabs Container */
+.tabs {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 24px;
+    margin-top: 45px;
+}
+
+/* Tab Buttons */
+.tab {
+    background-color:#f7f9fb;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    box-shadow: none; 
+}
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Space between left and center content */
+    align-items: center; /* Vertically align content */
+    margin-bottom: 1rem; /* Space below header */
+}
+
+/* Left Heading (Help Centre) */
+.left-heading h2 {
+    margin: 0;
+    margin-left: -37.8rem;
+    color: #FC5B67;
+    font-size: 18px;
+}
+
+.tab:hover {
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.3);  /* Add light shadow */
+    color: #101828; /* Ensure text color remains unchanged */
+}
+
+.tab.active {
+    background-color: #ee4961; /* Pink color for selected tab */
+    color: white; /* White font color for selected tab */
+    box-shadow: none; 
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #333;
+}
+
+/* Active Content */
+.tab-content.active {
+    display: block;
+}
+
+
+/* FAQ List */
+/* FAQ Container */
+/* FAQ Section Styling */
+.faq-section {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+    color: #ff5b67;
+}
+
+/* FAQ List */
+.faq-list {
+    width: 900%; /* Take full width */
+    max-width: 1106px; /* Match search bar's max width */
+    margin: 0 auto; 
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.faq-list.fade-in {
+    opacity: 1; /* Fully visible when class is added */
+}
+/* Specific CSS to target the placeholder inside the search-bar class */
+.search-bar input::placeholder {
+    color: #B9C0CA; /* Set placeholder text color */
+    font-family: 'DM Sans', sans-serif; /* Ensure font consistency */
+}
+
+/* Search Bar */
+.search-bar {
+    
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    margin: 40px auto 20px;
+    margin-top : 1rem;
+    margin-bottom: 2rem;
+}
+    .search-bar {
+    position: relative; /* Position context for dropdown */
+    z-index: 999; /* Ensure higher stacking order */
+}
+
+.search-wrapper {
+    position: relative; /* Parent position context */
+    z-index: 999; /* Higher stacking order */
+}
+
+
+
+.search-wrapper {
+    position: relative; /* Relative position for aligning child elements */
+    display: inline-block; /* Prevents expanding to the full container */
+    width: 100%; /* Match the width of the search bar */
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px; /* Position the icon */
+    width: 20px; /* Adjust icon width */
+    height: 18px; /* Adjust icon height */
+    pointer-events: none;
+    margin-bottom: -7rem; /* Avoid blocking input clicks */
+    top: 48%; /* Align vertically */
+    transform: translateY(-50%);
+    transition: opacity 0; /* Avoid blocking input focus */
+}
+.search-wrapper input:focus::placeholder,
+.search-wrapper input:not(:placeholder-shown)::placeholder {
+    opacity: 0; /* Hide placeholder text */
+    transition: opacity 0; /* Smooth fade-out */
+}
+.search-wrapper input:focus ~ .search-icon,
+.search-wrapper input:not(:placeholder-shown) ~ .search-icon {
+    opacity: 0; /* Hide the icon */
+}
+
+.search-wrapper input {
+    width: 500px; /* Adjust width as needed */
+    padding:  12px 12px 12px 45px; /* Extra left padding for the icon */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-bar input {
+    width: 1604px;
+    max-width: 1110px;
+    padding: 17px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-bar input:focus {
+    border-color: #ff5b67;
+    box-shadow: 0 0 5px rgba(255, 91, 103, 0.5);
+}
+
+/* FAQ Expand-Collapse */
+.faq-item {
+    width: 100%; /* Stretch to 100% of its parent */
+    border: none; /* Remove box border */
+    border-bottom: 1px solid #ddd; /* Add line beneath each FAQ */
+    padding: 15px 0; /* Adjust padding for clean spacing */
+    background-color: transparent;
+    cursor: pointer;
+    margin-bottom: 30px; /
+}
+
+.faq-item h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    font-size: 15px; /* Smaller font size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.faq-answer {
+    display: block;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    font-size: 14px; /* Smaller font size for answers */
+    color: #666;
+    transition: max-height 0.5001s ease-in-out, padding 0.499999s ease-in-out;
+    padding: 30 30px; /* Add padding for smooth visual */
+    margin-left: -21px; /* Ensure no extra margin/padding */
+    padding-left: 20px;
+    
+}
+
+.faq-item.open .faq-answer {
+    max-height: 100px; /* Adjust this value for visible height */
+    padding: 20px; /* Add padding when expanded */
+}
+
+
+/* Styling for Toggle Icons */
+.toggle-icon {
+    position: relative; /* Maintain container position */
+    display: inline-block;
+    width: 20px; /* Adjust width */
+    height: 20px; /* Adjust height */
+}
+
+.icon {
+    width: 20px; /* Set image size */
+    height: 20px;
+    position: absolute;
+    top: 50%; /* Align vertically */
+    left: 50%; /* Align horizontally */
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+}
+
+.minus-icon {
+    opacity: 0; /* Hidden initially */
+}
+
+.faq-item.open .plus-icon {
+    opacity: 0; /* Hide the plus icon */
+}
+
+.faq-item.open .minus-icon {
+    opacity: 1; /* Show the minus icon */
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 8px; /* Space between buttons */
+}
+
+.pagination-btn {
+    background-color: #F6F7F8; /* Light grey background */
+    color: #333;
+    border: none;
+    border-radius: 50%; /* Circular buttons */
+    padding: 10px 15px; /* Size of buttons */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.pagination-btn:hover {
+    background-color: #ddd; /* Slightly darker on hover */
+}
+
+.pagination-btn.active {
+    background-color: #FC5B67; /* Active page background */
+    color: #fff; /* White text for active page */
+    border: 2px solid #FC5B67; /* Border to make it pop */
+}
+
+.pagination-btn:focus {
+    outline: none; /* Remove focus outline */
+}
+
+
+/* CTA */
+/* CTA Section */
+/* CTA Section */
+.cta-box {
+    background-color: #FFEAEA; /* Pink background */
+    border-radius: 17px; /* Rounded corners */
+    padding: 40px 80px; /* Increase left and right padding */
+    text-align: center;
+    height : 250px;
+    margin: 60px auto 0; /* Push it lower with margin-top */
+    width: 100%; /* Full width of the container */
+    max-width: 1122px; /* Stretching length (adjust as needed) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/* Images Styling */
+/* Image Styling */
+.cta-images img {
+    width:190px; /* Adjust the size of the single image */
+    height: 90px;
+    
+    margin-bottom: -5px; /* Space between image and text */
+}
+
+
+/* Text Styling */
+.cta-content h3 {
+    font-size: 22px;
+    color: #333;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.cta-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.cta-button {
+    background-color: #FF5B67;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 20px;
+    border-radius: 16px;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #E94B55;
+}
+
+

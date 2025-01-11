@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Help Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-item logo-item" style = "margin-bottom: 1.89rem;"><img src="one.png" /></li>
+                <li class="nav-item" ><img src="two.png" /></li>
+                <li class="nav-item"><img src="three.png" /></li>
+                <li class="nav-item"><img src="four.png" /></li>
+                <li class="nav-item"><img src="five.png" /></li>
+                <li class="nav-item"><img src="six.png" /></li>
+                <li class="nav-item"><img src="seven.png" /></li>
+                <li class="nav-item"><img src="eight.png" /></li>
+                <li class="nav-item"><img src="nine.png" /></li>
+                <li class="nav-item" style = "margin-top : 8rem;"><img src="ten.png" /></li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="container">
+        <!-- Your website content here -->
+    </div>
+    
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="header-container">
+            <div class="left-heading">
+                <h2>Help Center</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-item">
+                    <img src="general-icon.png" class="nav-icon"> General
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="videos-icon.png" class="nav-icon"> Videos
+                </a>
+                <a href="#" class="nav-item active">
+                    <img src="faq-icon.png" class="nav-icon"> FAQ
+                </a>
+            </div>
+            
+        </header>
+        <hr class="divider">
+        <!-- Breadcrumbs Section -->
+
+        <div class="breadcrumbs" style="margin-left: -82rem; margin-top: 2.5rem; font-size: 18px; color: #999;">
+            <span style="margin-right: 0.5rem;">
+                <img src="a.png" style="width: 24px; margin-bottom:0.236rem;height: auto; vertical-align: middle;">
+            </span> 
+            <a href="#" style="text-decoration: underline; color: #515965;  margin-right: 0.5rem;">KEBS HELP CENTER</a>
+            <span>&gt;</span>
+            <a href="#" style="color: #FC5B67; font-weight: bold; margin-left: 0.5rem; font-size : 22px;">FAQ's</a>
+        </div>
+        
+
+
+
+        <!-- Filter Tabs -->
+        <div class="tabs" style = " margin-bottom :2rem">
+            <button class="tab active" data-target="general">General</button>
+            <button class="tab" data-target="projects">Projects</button>
+            <button class="tab" data-target="ats">ATS</button>
+            <button class="tab" data-target="finance">Finance</button>
+            <button class="tab" data-target="timesheet">Timesheet</button>
+            <button class="tab" data-target="crm">CRM</button>
+            <button class="tab" data-target="hr">HR</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <div class="search-wrapper" style="position: relative;">
+                <input type="text" id = "faq-search" placeholder="      Search for FAQ's..." />
+                <img src="vector.png" alt="Search" class="search-icon" />
+            </div>
+        </div>
+        
+
+        <div id="search-results" class="search-results"></div>
+
+        <!-- FAQ List -->
+<!--------------------------------------------------------------------------------------->
+        
+
+        <div class="faq-list">
+       </div>
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+        
+        <!-- Pagination -->
+      
+        <div class="pagination" style="margin-left: 42rem;">
+            <button class="pagination-btn first-page">&laquo;</button> <!-- First Page -->
+            <button class="pagination-btn prev-page">&lt;</button>   <!-- Previous -->
+            <button class="pagination-btn active">1</button> <!-- Active Page -->
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn dots">...</button>
+            <button class="pagination-btn">8</button>
+            <button class="pagination-btn">9</button>
+            <button class="pagination-btn">10</button>
+            <button class="pagination-btn next-page">&gt;</button>   <!-- Next -->
+            <button class="pagination-btn last-page">&raquo;</button> <!-- Last Page -->
+        </div>
+       
+        <div class="cta-box">
+            <!-- Single Image -->
+            <div class="cta-images">
+                <img src="person1.png" alt="Person">
+            </div>
+        
+            <!-- Text Content -->
+            <div class="cta-content">
+                
+                 <h3>Still have questions?</h3>
+                <p>Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
+            </div>
+        
+            <!-- Get in Touch Button -->
+            <button class="cta-button" onclick="window.location.href='submit-ticket.html'">Get in touch</button>
+
+
+        </div>
+        
+        
+    
+    <script src="script.js"></script>
+</body>
+</html>
